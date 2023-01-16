@@ -3,9 +3,16 @@ import classes from './modules/TodoItem.module.css';
 
 function TodoItem(props) {
   return (
-    <li className={classes.item} onClick={props.onRemoveTodo}>
-      {props.text}
-    </li>
+    <div className={classes.item}>
+      {props.index}: {props.text}
+      <button
+        onClick={props.onRemoveTodo}
+        className={classes.glowOnHover}
+        type="button"
+      >
+        DELETE
+      </button>
+    </div>
   );
 }
 

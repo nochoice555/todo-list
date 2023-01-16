@@ -22,10 +22,19 @@ function TodosContextProvider(props) {
     setTodos((prev) => prev.filter((todo) => todo.id !== todoId));
   };
 
+  const replaceDnDTodoHandler = (currentIndex, dropIndex, currentTodoEl) => {
+    setTodos((prev) => {
+      prev.splice(currentIndex, 1);
+      prev.splice(dropIndex, 0, currentTodoEl);
+      return prev;
+    });
+  };
+
   const contextValue = {
     items: todos,
     addTodo: addTodoHandler,
     removeTodo: removeTodoHandler,
+    replaceDnDTodo: replaceDnDTodoHandler,
   };
 
   return (

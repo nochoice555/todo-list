@@ -13,6 +13,7 @@ function NewTodo() {
     if (enteredText.trim().length === 0) return;
 
     todoCtx.addTodo(enteredText.trim());
+    todoInputRef.current.value = '';
   };
 
   return (
