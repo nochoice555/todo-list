@@ -15,6 +15,11 @@ function TodosContextProvider(props) {
       text: todoText,
     };
 
+    if (todos.length === 8) {
+      alert('НУ ВСЕ ХВАТИТ');
+      return;
+    }
+
     setTodos((prev) => prev.concat(newTodo));
   };
 

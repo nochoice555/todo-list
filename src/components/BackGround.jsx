@@ -1,0 +1,31 @@
+import React, { Suspense } from 'react';
+import { Canvas } from '@react-three/fiber';
+import Box from './Box';
+import { Physics } from '@react-three/cannon';
+import Flor from './Flor';
+
+function BackGround(props) {
+  return (
+    <div className="absolute h-screen w-screen">
+      <Suspense fallback={null}>
+        <Canvas>
+          <Physics>
+            <ambientLight intensity={0.1} />
+            <pointLight position={[10, 10, 10]} />
+            <Box />
+            <Box position={[-2, 0, 2]} />
+            <Box position={[1, -2, 0]} />
+            <Box position={[1, -1, 0]} />
+            <Box position={[1, 0, 0]} />
+            <Box position={[1, 1, 0]} />
+            <Box position={[1, 2, 0]} />
+            <Box position={[-1, 1, 0]} />
+            <Flor position={[0, -2, -2]} />
+          </Physics>
+        </Canvas>
+      </Suspense>
+    </div>
+  );
+}
+
+export default BackGround;
