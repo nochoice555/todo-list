@@ -8,6 +8,7 @@ export const TodosContext = React.createContext({
 
 function TodosContextProvider(props) {
   const [todos, setTodos] = useState([]);
+  const [isAdded, setIsAdded] = useState(false);
 
   const addTodoHandler = (todoText) => {
     const newTodo = {
@@ -21,6 +22,8 @@ function TodosContextProvider(props) {
     }
 
     setTodos((prev) => prev.concat(newTodo));
+    setIsAdded((prev) => !prev);
+    console.log(isAdded);
   };
 
   const removeTodoHandler = (todoId) => {
@@ -37,6 +40,7 @@ function TodosContextProvider(props) {
 
   const contextValue = {
     items: todos,
+    boxIsAdded: isAdded,
     addTodo: addTodoHandler,
     removeTodo: removeTodoHandler,
     replaceDnDTodo: replaceDnDTodoHandler,
